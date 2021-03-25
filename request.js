@@ -9,6 +9,10 @@ Axios.get('http://localhost:3000/', {
         })
 
         res.data.on('end', () => {
-            console.log('fin')
+            console.log('request is finished')
+        })
+
+        res.data.on('error', e => {
+            console.log(e)
         })
     })

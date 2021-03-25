@@ -7,3 +7,6 @@ Creating a streamed response would allow us to show messages from the server abo
 ## Usage
 - Start server: `node server.js`
 - Send example request: `node request.js`
+
+## Update 3/25
+Uploaded a more robust example that includes using a custom [EventEmitter](https://nodejs.org/api/events.html) to dictate the stream events as well as simulate errors and error handling.

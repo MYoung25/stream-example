@@ -2,25 +2,31 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+const MyService = require('./service')
+
 app.get('/', (req, res) => {
 
-    let i = 0;
-    let limit = 5
+    const svc = new MyService()
 
-    const int = setInterval(() => {
+    svc.events.on('data', data => {
+        res.write(data)
+    })    
 
-        if ( i < limit ) {
-            i++
-            res.write(`this is chunk: ${i} of ${limit}`)
-        } else {
-            clearInterval(int)
-            res.end()
-        }
+    svc.events.on('end', (data) => {
+        res.write('success!')
+        res.end()
+    })
 
-    }, 1000)
+    svc.events.on('error', e => {
+        console.log(e)
+        res.write(e.message)
+        res.end()
+    })
+
+    svc.firstAction()
 
 })
 
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`)
-  })
+})
