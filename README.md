@@ -7,3 +7,6 @@ Creating a streamed response would allow us to show messages from the server abo
 ## Usage
 - Start server: `node server.js`
 - Send example request: `node request.js`
+
+## Event Example
+Look at branch `event-example` for a more robust example of how this could replace the socket.io implementation.
