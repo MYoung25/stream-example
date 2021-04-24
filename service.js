@@ -19,7 +19,7 @@ class MyService {
             this.events.emit('data', 'this is the second action to complete')
 
             // randomly emit an error for the purpose of our example
-            const shouldError = Math.floor(Math.random() * 2)
+            const shouldError = false //Math.floor(Math.random() * 2)
             
             if (shouldError) {
                 this.emitError(new Error('this is a random error simulation'))

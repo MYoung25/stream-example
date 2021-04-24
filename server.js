@@ -6,6 +6,8 @@ const MyService = require('./service')
 
 app.get('/', (req, res) => {
 
+    res.setHeader('Access-Control-Allow-Origin', '*')
+
     const svc = new MyService()
 
     svc.events.on('data', data => {
